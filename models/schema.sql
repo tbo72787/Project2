@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS friendMatchdb;
+CREATE DATABASE friendMatchdb;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+USE friendMatchdb;
+
