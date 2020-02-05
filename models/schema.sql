@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS friendMatchdb;
+DROP DATABASE IF EXISTS friendMatcherdb;
 CREATE DATABASE friendMatchdb;
 
 USE friendMatchdb;
