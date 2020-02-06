@@ -1,13 +1,26 @@
 /* eslint-disable no-unused-vars */
-console.log("Its Connecdhsdghsfghjfgted!");
+
+
+// This File:
+//   * Displays the Questions
+//   * Submits the questions when the user hits the "submit" button.
+
+// Are we connected?
+console.log("Question Bank is Connected!");
 
 // DOM Elements:
-// Quiz Page:
 var questionList = document.getElementById("questionList");
+var slider = document.getElementsByClassName("slider");
+var submitButton = document.getElementById("submitButton");
+
+// Global Variables
+var userAnswerArr = [];
+var userAnswersStr;
 
 
-// Create Quiz Questions
-var questionBank = [
+// QUESTION BANK 
+// ====================================================================================================================
+questionBank = [
   {
     question: "Sports are very important to me",
     answer1:  "DISAGREE",
@@ -49,11 +62,13 @@ var questionBank = [
 
 
 
+// FUNCTIONS
+// ====================================================================================================================
 
+// DISPLAY QUIZ QUESTIONS - - - - - - - - - - - - - - - - - - - - - - - - 
 
 function displayQuestions(){
   for (var i = 0; i < questionBank.length; i++){
-    console.log("Ran display questions")
     
     //Creates a div:
     var questionDiv = document.createElement("div");
@@ -66,9 +81,6 @@ function displayQuestions(){
     questionText.classList.add("questionText");
     questionText.setAttribute("id", `Question-Text-${i}`);
     questionDiv.appendChild(questionText);
-    console.log(`The question is ${questionBank[i]}`)
-    console.log(`questionList is ${questionList}`)
-    console.log(`questionDiv is ${questionDiv}`)
 
     // Add the slider:
     var slider = document.createElement("div");
@@ -91,20 +103,41 @@ function displayQuestions(){
     sliderLabelsRow.appendChild(answer2Div);
     questionDiv.appendChild(sliderLabelsRow)
     
-
     // Appends created items to the question div:
     questionList.appendChild(questionDiv);
   }
 }
 
+// POST information - - - - - - - - - - - - - - - - - - - - - - - - 
+
+function submit(){
+  createUserAnswerArr();
+  changeAnswersArrToString();
+  postUserAnswers();
+}
+
+function createUserAnswerArr(){
+  userScores = [];
+  $(".slider").each(function() {
+    var score = parseInt($(this).val())
+    userScores.push(score);
+  });
+  userAnswerArr = userScores
+  console.log("SUBMITTED!")
+  console.log(userAnswerArr);
+}
+
+function changeAnswersArrToString(){
+  userAnswersStr = userAnswerArr.toString();
+}
+
+function postUserAnswers(){
+  console.log(`Time to post ${userAnswersStr} to the server!`)
+}
 
 
 
-
-                // <div class="row">
-                //   <div class="rangeLabels disagree">DISAGREE</div>
-                //   <div class="rangeLabels agree">AGREE</div>
-                // </div>
-
+// RUN
+// ====================================================================================================================
 displayQuestions();
-
+submitButton.onclick = submit;
