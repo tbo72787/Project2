@@ -1,3 +1,10 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.button-cta-primary{
+  background-color: blue;
+  color: white;
+  text-align: center;
+  width: 20em;
+}
