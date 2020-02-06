@@ -73,7 +73,7 @@ function displayQuestions(){
     //Creates a div:
     var questionDiv = document.createElement("div");
     questionDiv.classList.add("questionDiv");
-    questionDiv.setAttribute("id",`Question-${i}`);
+    questionDiv.setAttribute("id","Question-${i}");
 
     // Add the question text:
     var questionText = document.createElement("p");
