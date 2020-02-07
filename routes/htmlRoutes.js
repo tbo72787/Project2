@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   // Load survey page
   app.get("/survey", function(req, res) {
-    res.sendFile("survey.html", { root: process.cwd() + "/views" });
+    res.sendFile("quiz.html", { root: process.cwd() + "/views" });
   });
 
   // Load diagram page
