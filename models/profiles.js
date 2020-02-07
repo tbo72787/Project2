@@ -30,27 +30,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  var Answers = sequelize.define("Answers", {
-    userId: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    answerArr: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
+  Profiles.associate = function(models) {
+    Profiles.hasMany(models.Answers, {
+      onDelete: "cascade"
+    });
+  };
 
-  var Connections = sequelize.define("Connections", {
-    userId: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    answerArr: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
-
-  return Answers, Profiles, Connections;
+  return Profiles;
 };
