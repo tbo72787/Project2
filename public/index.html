@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+  <!--TITLE-->  
+  <title>Enter a title</title>
+  
+  <!-- Change the color of the tab on mobile: -->
+  <meta name="theme-color" content="#E3CA72">
+
+  <!-- CSS LINKING -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap" rel="stylesheet"> 
+
+  <!--meta (needed for media queries and such)-->    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+  <!--Javascript-->
+    <!--jQuery-->  
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- D3 -->
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+
+</head>
+<body>
+
+  <!-- INITIAL PAGE -->
+  <div id="pageSplashPage" class="indexPage container">
+      <div class="row">  
+      <h1>How diverse is my friend group?</h1>
+      <div id="buttonToSignUpForm" class="button-cta-primary submitButton">Get Started</div>
+      <div id="buttonToSignInForm" class="button-cta-secondary submitButton">Sign In</div>
+    </div>
+  </div>
+  <!-- / initial page-->
+  
+  <!-- SIGN IN -->
+  <div id="pageSignIn" class="indexPage container">
+    <div class="row">
+      <h1>Enter your Username</h1>
+      <form>
+        First name:<br>
+        <input type="text" name="username" value="Enter Username">
+        <br><br>
+        <input id="buttonSignIn" class="button-cta-primary submitButton" type="submit" value="Sign In">
+      </form> 
+      <div id="buttonBackHome" class="button-cta-secondary submitButton">Back</div>
+    </div>
+  </div>
+  <!-- / sign in-->
+  
+  <!-- FORM -->
+  <div id="pageSignUpForm" class="indexPage container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Enter your Username</h1>
+        <form>
+          <div class="formTextBlock container">
+            <div class="row">
+  
+              <div class="col-md-12">
+                <h4>Name:</h4>
+                <p>First, last, whatever you choose to go by!</p>
+                <input type="text" name="username" value="Enter Username">
+              </div>
+  
+              <div class="col-md-12">
+                <h4>Username:</h4>
+                <p>Pick something you can remember!</p>
+                <input type="text" name="username" value="Enter Username">
+              </div>
+  
+              <div class="col-md-12">
+                <h4>Age:</h4>
+                <p>(Has to be a number)</p>
+                <input type="text" name="age" value="Enter your age">
+              </div>
+  
+              <div class="col-md-12">
+                <h4>Email</h4>
+                <p>Don't worry, we won't spam you.</p>
+                <input type="text" name="email" value="Email">
+              </div>
+  
+              <div class="col-md-12">
+                  <h4>Gender</h4>
+                  <p>Don't know why we're asking, but...</p>
+                  <input type="text" name="gender" value="gender">
+                </div>
+  
+              <div class="col-md-12">
+                <h4>Picture</h4>
+                <p>For now, just put a link to a jpg hosted online.</p>
+                <input type="text" name="userPic" value="Jpg. png. anything already hosted online!">
+              </div>
+  
+              <div class="col-md-12">
+                <input id="buttonSubmitForm" class="button-cta-primary submitButton" type="submit" value="Sign In">
+                <div id="buttonBackHome2" class="button-cta-secondary submitButton">Back</div>
+              </div>
+            </div>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- / form-->
+    
+  <!-- Local Javascript file link-->  
+  <script src="./js/index.js"></script> 
+  </body>
+  </html>

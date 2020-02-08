@@ -1,99 +1,123 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+/* eslint-disable no-multi-spaces */
+/* eslint-disable indent */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+
+
+// DOM Elements
+  // Sections
+  var pageSplashPage   = document.getElementById("pageSplashPage");
+  var pageSignIn       = document.getElementById("pageSignIn");
+  var pageSignUpForm   = document.getElementById("pageSignUpForm");
+// User Form Buttons
+  var buttonToSignUpForm = document.getElementById("buttonToSignUpForm");
+  var buttonToSignInForm = document.getElementById("buttonToSignInForm");
+  var buttonBackHome     = document.getElementById("buttonBackHome");
+  var buttonBackHome2     = document.getElementById("buttonBackHome2");
+  var buttonSubmitForm = document.getElementById("buttonSubmitForm");
+// User Form Inputs  
+  var $submitBtn = $("#submit");
+  var $userName = $("#user-name");
+  var $userAge = $("#user-age");
+  var $userGender = $("#user-gender");
+  var $userEmail = $("#user-email");
+  var $userPicture = $("#user-picture");
+
+
+
+// DISPLAY THE CORRECT DIVS:
+// ==============================================================
+function displaySectionsOnPageLoad(){
+pageSplashPage.style.display = "block";
+pageSignIn.style.display = "none";
+pageSignUpForm.style.display = "none";
+}
+
+buttonToSignUpForm.onclick = function(){
+pageSplashPage.style.display = "none";
+pageSignIn.style.display = "none";
+pageSignUpForm.style.display = "block";
+};
+
+buttonToSignInForm.onclick = function(){
+pageSignIn.style.display = "block";
+pageSplashPage.style.display = "none";
+pageSignUpForm.style.display = "none";
+};
+
+buttonBackHome.onclick = displaySectionsOnPageLoad;
+buttonBackHome2.onclick = displaySectionsOnPageLoad;
+
+
+
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
+saveUser: function(data) {
+  return $.ajax({
+    headers: {
+      "Content-Type": "application/json"
+    },
+    type: "POST",
+    url: "api/users",
+    data: JSON.stringify(data)
   });
+},
+saveSurvey: function(data) {
+  return $.ajax({
+    headers: {
+      "Content-Type": "application/json"
+    },
+    type: "POST",
+    url: "api/surveys",
+    data: JSON.stringify(data)
+  });
+}
 };
 
+// Debug this in a bit...
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+var handleUserSubmit = function(event) {
+event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
+var user = {
+  name: $userName.val().trim(),
+  age: $userAge.val(),
+  gender: $userGender.val(),
+  email: $userEmail.val().trim(),
+  picture: $userPicture.val().trim()
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+if (!(user.name && user.age && user.gender && user.email && user.picture)) {
+  alert("You must complete the form!");
+  return;
+}
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
+API.saveUser(user);
+
+var ansArr = [];
+for (var i = 1; i < 11; i++) {
+  var newVal = $("#a" + i);
+  ansArr.push(newVal);
+}
+
+var survey = {
+  name: $userName.val().trim(),
+  survey: ansArr
 };
+
+API.saveSurvey(survey);
+};
+
+
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// buttonSubmitForm.on("click", handleUserSubmit);
+
+
+
+// RUN
+// ==============================================================
+displaySectionsOnPageLoad();
