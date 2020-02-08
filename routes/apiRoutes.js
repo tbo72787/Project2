@@ -44,9 +44,11 @@ module.exports = function(app) {
 
   // Get user by userName
   app.get("/api/users/1/:userName", function(req, res) {
-    db.Profiles.findAll({ where: { userName: req.params.userName } }).then(
+    var userNameString = req.params.userName;
+    db.Profiles.findAll({ where: { userName: userNameString } }).then(
       function(dbUser) {
         res.json(dbUser);
+        // console.log(dbUser);
       }
     );
   });

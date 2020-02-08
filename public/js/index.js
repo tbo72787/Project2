@@ -68,6 +68,7 @@ function displayQuiz(){
   pageIndex.style.display = "none";
   pageQuiz.style.display = "block";
   pageDiagram.style.display = "none";
+  console.log($userName);
   handleUserSubmit();
 }
 
@@ -75,6 +76,7 @@ function displayDiagram(){
   pageIndex.style.display = "none";
   pageQuiz.style.display = "none";
   pageDiagram.style.display = "block";
+  getUserId();
 }
 
 
@@ -115,13 +117,21 @@ getUserByUserName: function(req, res) {
 var handleUserSubmit = function() {
 // event.preventDefault();
 
+$userRealName = $("#user-real-name").val().trim();
+$userName = $("#user-name").val().trim();
+$userAge = $("#user-age").val().trim();
+$userGender = $("#user-gender").val().trim();
+$userEmail = $("#user-email").val().trim();
+$userPicture = $("#user-picture").val().trim();
+
+
   var user = {
-    userName: $userName.val().trim(),
-    name: $userRealName.val().trim(),
-    age: $userAge.val().trim(),
-    gender: $userGender.val().trim(),
-    email: $userEmail.val().trim(),
-    picture: $userPicture.val().trim()
+    userName: $userName,
+    name: $userRealName,
+    age: $userAge,
+    gender: $userGender,
+    email: $userEmail,
+    picture: $userPicture
   };
 
   if (!(user.name && user.age && user.gender && user.email && user.picture)) {
@@ -129,14 +139,15 @@ var handleUserSubmit = function() {
     return;
   }
 
-  API.saveUser(user).then(
-  getUserId());
+  API.saveUser(user);
 };
 
 var getUserId = function() {
-  $.get(("/api/users/1/" + $userName.val().trim()), function(data) {
-    console.log($userName.val().trim());
+  $.get(("/api/users/1/" + $userName), function(data) {
+    // console.log($userName.val().trim());
     console.log(data);
+    $userId = data[0].id;
+    console.log($userId);
   });
 };
 // Add event listeners to the submit and delete buttons
