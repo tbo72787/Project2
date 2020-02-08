@@ -24,13 +24,17 @@ module.exports = function(app) {
 
   // Create a new survey
   app.post("/api/surveys", function(req, res) {
+    // console.log(db);
     db.Answers.create(req.body).then(function(dbSurvey) {
+      // console.log(dbSurvey);
       res.json(dbSurvey);
+      // console.log(req.body);
     });
   });
 
   // Get user by id
   app.get("/api/users/:id", function(req, res) {
+    // eslint-disable-next-line prettier/prettier
     db.Profiles.findAll({ where: { id: req.params.id } }).then(function(dbUser) {
       res.json(dbUser);
     });
