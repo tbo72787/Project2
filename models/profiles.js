@@ -26,5 +26,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  Profiles.associate = function(models) {
+    // Associating Profiles with Answers
+    // When an Author is deleted, also delete any associated Answers
+    Profiles.hasMany(models.Answers, {
+      onDelete: "cascade"
+    });
+  };
+
   return Profiles;
 };
