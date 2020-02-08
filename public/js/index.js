@@ -6,15 +6,21 @@
 
 // DOM Elements
   // Sections
-  var pageSplashPage   = document.getElementById("pageSplashPage");
-  var pageSignIn       = document.getElementById("pageSignIn");
-  var pageSignUpForm   = document.getElementById("pageSignUpForm");
+  var pageIndex          = document.getElementById("pageIndex");
+    var pageSplashPage   = document.getElementById("pageSplashPage");
+    var pageSignIn       = document.getElementById("pageSignIn");
+    var pageSignUpForm   = document.getElementById("pageSignUpForm");
+  var pageQuiz           = document.getElementById("pageQuiz");
+  var pageDiagram        = document.getElementById("pageDiagram");
+  
+
 // User Form Buttons
   var buttonToSignUpForm = document.getElementById("buttonToSignUpForm");
   var buttonToSignInForm = document.getElementById("buttonToSignInForm");
   var buttonBackHome     = document.getElementById("buttonBackHome");
   var buttonBackHome2     = document.getElementById("buttonBackHome2");
   var buttonSubmitForm = document.getElementById("buttonSubmitForm");
+  var quizSubmitButton   = document.getElementById("quizSubmitButton");
 // User Form Inputs  
   var $submitBtn = $("#submit");
   var $userName = $("#user-name");
@@ -31,14 +37,18 @@ function displaySectionsOnPageLoad(){
 pageSplashPage.style.display = "block";
 pageSignIn.style.display = "none";
 pageSignUpForm.style.display = "none";
+pageQuiz.style.display = "none";
+pageDiagram.style.display = "none";
 }
 
+// Goes to Sign Up Form:
 buttonToSignUpForm.onclick = function(){
 pageSplashPage.style.display = "none";
 pageSignIn.style.display = "none";
 pageSignUpForm.style.display = "block";
 };
 
+// Sign In:
 buttonToSignInForm.onclick = function(){
 pageSignIn.style.display = "block";
 pageSplashPage.style.display = "none";
@@ -48,7 +58,20 @@ pageSignUpForm.style.display = "none";
 buttonBackHome.onclick = displaySectionsOnPageLoad;
 buttonBackHome2.onclick = displaySectionsOnPageLoad;
 
+buttonSubmitForm.onclick = displayQuiz;
+quizSubmitButton.onclick = displayDiagram;
 
+function displayQuiz(){
+  pageIndex.style.display = "none";
+  pageQuiz.style.display = "block";
+  pageDiagram.style.display = "none";
+}
+
+function displayDiagram(){
+  pageIndex.style.display = "none";
+  pageQuiz.style.display = "none";
+  pageDiagram.style.display = "block";
+}
 
 
 
