@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Profiles = sequelize.define("Profiles", {
-    UserName: {
+    userName: {
       type: DataTypes.STRING,
       allowNull: false
     },

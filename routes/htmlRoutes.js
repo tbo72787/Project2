@@ -12,8 +12,8 @@ module.exports = function(app) {
   });
 
   // Load diagram page
-  app.get("/diagram/:id", function(req, res) {
-    db.Profiles.findOne({ where: { id: req.params.id } });
+  app.get("/diagram", function(req, res) {
+    // db.Profiles.findOne({ where: { id: req.params.id } });
     res.sendFile("diagram.html", { root: process.cwd() + "/public" });
   });
 

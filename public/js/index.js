@@ -23,12 +23,15 @@
   var quizSubmitButton   = document.getElementById("quizSubmitButton");
 // User Form Inputs  
   var $submitBtn = $("#submit");
+  var $userRealName = $("#user-real-name");
   var $userName = $("#user-name");
   var $userAge = $("#user-age");
   var $userGender = $("#user-gender");
   var $userEmail = $("#user-email");
   var $userPicture = $("#user-picture");
 
+// User ID Retrieved After Login/Profile Submit
+  var userId;
 
 
 // DISPLAY THE CORRECT DIVS:
@@ -65,6 +68,7 @@ function displayQuiz(){
   pageIndex.style.display = "none";
   pageQuiz.style.display = "block";
   pageDiagram.style.display = "none";
+  handleUserSubmit();
 }
 
 function displayDiagram(){
@@ -96,46 +100,45 @@ saveSurvey: function(data) {
     url: "api/surveys",
     data: JSON.stringify(data)
   });
+},
+getUserByUserName: function(req, res) {
+  return $.ajax({
+    url: "api/users/:" + $userName.val().trim(),
+    type: "GET"
+  });
 }
 };
 
 // Debug this in a bit...
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleUserSubmit = function(event) {
-event.preventDefault();
+var handleUserSubmit = function() {
+// event.preventDefault();
 
-var user = {
-  name: $userName.val().trim(),
-  age: $userAge.val(),
-  gender: $userGender.val(),
-  email: $userEmail.val().trim(),
-  picture: $userPicture.val().trim()
+  var user = {
+    userName: $userName.val().trim(),
+    name: $userRealName.val().trim(),
+    age: $userAge.val().trim(),
+    gender: $userGender.val().trim(),
+    email: $userEmail.val().trim(),
+    picture: $userPicture.val().trim()
+  };
+
+  if (!(user.name && user.age && user.gender && user.email && user.picture)) {
+    alert("You must complete the form!");
+    return;
+  }
+
+  API.saveUser(user).then(
+  getUserId());
 };
 
-if (!(user.name && user.age && user.gender && user.email && user.picture)) {
-  alert("You must complete the form!");
-  return;
-}
-
-API.saveUser(user);
-
-var ansArr = [];
-for (var i = 1; i < 11; i++) {
-  var newVal = $("#a" + i);
-  ansArr.push(newVal);
-}
-
-var survey = {
-  name: $userName.val().trim(),
-  survey: ansArr
+var getUserId = function() {
+  $.get(("/api/users/1/" + $userName.val().trim()), function(data) {
+    console.log($userName.val().trim());
+    console.log(data);
+  });
 };
-
-API.saveSurvey(survey);
-};
-
-
-
 // Add event listeners to the submit and delete buttons
 // buttonSubmitForm.on("click", handleUserSubmit);
 
