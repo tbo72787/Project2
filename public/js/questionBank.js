@@ -134,7 +134,7 @@ function changeAnswersArrToString(){
 function postUserAnswers(){
   console.log(`Time to post ${userAnswersStr} to the server!`)
   
-  var userId = $("#userId").val().trim();
+  // var userId = $("#userId").val().trim();
   // console.log(userId)
 
   return $.ajax({
@@ -151,4 +151,4 @@ function postUserAnswers(){
 // RUN
 // ====================================================================================================================
 displayQuestions();
-submitButton.onclick = submit;
+quizSubmitButton.onclick = submit;

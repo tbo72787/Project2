@@ -31,6 +31,10 @@
 </head>
 <body>
 
+  <!-- ------ ----- ----- ----- INDEX PAGE ----- ----- ----- ----- ----- -->
+  <!-- ------ ----- ----- ----- INDEX PAGE ----- ----- ----- ----- ----- -->
+  <!-- ------ ----- ----- ----- INDEX PAGE ----- ----- ----- ----- ----- -->
+<div id="pageIndex">
   <!-- INITIAL PAGE -->
   <div id="pageSplashPage" class="indexPage container">
       <div class="row">  
@@ -102,7 +106,7 @@
               </div>
   
               <div class="col-md-12">
-                <input id="buttonSubmitForm" class="button-cta-primary submitButton" type="submit" value="Sign In">
+                <input id="buttonSubmitForm" class="button-cta-primary submitButton" value="Sign In">
                 <div id="buttonBackHome2" class="button-cta-secondary submitButton">Back</div>
               </div>
             </div>
@@ -111,11 +115,65 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
+ <!-- ------ ----- ----- ----- QUIZ PAGE ----- ----- ----- ----- ----- -->
+ <!-- ------ ----- ----- ----- QUIZ PAGE ----- ----- ----- ----- ----- -->
+ <!-- ------ ----- ----- ----- QUIZ PAGE ----- ----- ----- ----- ----- -->
+<div id="pageQuiz">
+  <div class="container">
+      <div class="row">
+        <h1>Take the Quiz</h1>
+      </div>
+      <div id="questionList" class="container questionList">
+        <!--Questions populate here-->
+      </div>
+      <div class="row">
+          <div id="quizSubmitButton" class="button-cta-primary submitButton">button...</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ------ ----- ----- ----- DIAGRAM PAGE ----- ----- ----- ----- ----- -->
+  <!-- ------ ----- ----- ----- DIAGRAM PAGE ----- ----- ----- ----- ----- -->
+  <!-- ------ ----- ----- ----- DIAGRAM PAGE ----- ----- ----- ----- ----- -->
+<div id="pageDiagram">
+  <div class="container">
+      <div class="row">
+        <div id="anything" class="col-12-md">
+          <p id="displayUsername"></p>
+          <h1>You are</h1>
+        </div>
+      </div>
+    </div>
+  
+    <div id="visualsDiv" class="container">
+      <!-- Sentences will populate here -->
+    </div> 
   
   
-  <!-- / form-->
+    <!-- ADD CONNECTION BUTTON -->
+    <div id="buttonConnectionClosed">+</div>
+  
+    <div id="buttonConnectionOpen">
+        <form>
+            Enter your friend's username:<br>
+            <input type="text" name="connection" value="Enter Your Connection's Username">
+            <input id="buttonAddConnection" class="button-cta-primary submitButton" type="submit" value="Add Connection">
+        </form> 
+    </div>
+  </div>
+  
+
     
   <!-- Local Javascript file link-->  
   <script src="./js/index.js"></script> 
+  <script src="./js/calculateFriend.js"></script> 
+  <script src="./js/questionBank.js"></script> 
   </body>
   </html>
