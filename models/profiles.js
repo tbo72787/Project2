@@ -1,14 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Profiles = sequelize.define("Profiles", {
-    userId: {
+    UserName: {
       type: DataTypes.STRING,
       allowNull: false
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    userName: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -29,12 +25,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-
-  Profiles.associate = function(models) {
-    Profiles.hasMany(models.Answers, {
-      onDelete: "cascade"
-    });
-  };
 
   return Profiles;
 };

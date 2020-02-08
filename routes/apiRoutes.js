@@ -10,8 +10,9 @@ module.exports = function(app) {
 
   // Get all answers
   app.get("/api/surveys", function(req, res) {
-    db.Answers.findAll({}).then(function(dbSurvey) {
+    db.Login.findAll({}).then(function(dbSurvey) {
       res.json(dbSurvey);
+      res.redirect("/");
     });
   });
 
@@ -31,7 +32,9 @@ module.exports = function(app) {
 
   // Get user by id
   app.get("/api/users/:id", function(req, res) {
-    db.Profiles.findAll({ where: { id: req.params.id } }).then(function(dbUser) {
+    db.Profiles.findAll({ where: { id: req.params.id } }).then(function(
+      dbUser
+    ) {
       res.json(dbUser);
     });
   });
