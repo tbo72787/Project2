@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-  // import {$} from "jquery";
+
 
 // This File:
 //   * Displays the Questions
@@ -133,16 +133,19 @@ function changeAnswersArrToString(){
 
 function postUserAnswers(){
   console.log(`Time to post ${userAnswersStr} to the server!`)
+  
+  var userId = $("#userId").val().trim();
+  // console.log(userId)
+
   return $.ajax({
     headers: {
       "Content-Type": "application/json"
     },
     type: "POST",
-    url: "api/surveys",
-    data: JSON.stringify([1,2,3])
+    url: "api/surveys/",
+    data: JSON.stringify(({ userId: userId, answerArr: userAnswersStr}))
   });
-}
-
+};
 
 
 // RUN

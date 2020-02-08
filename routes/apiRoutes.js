@@ -25,8 +25,11 @@ module.exports = function(app) {
 
   // Create a new survey
   app.post("/api/surveys", function(req, res) {
+    // console.log(db);
     db.Answers.create(req.body).then(function(dbSurvey) {
+      // console.log(dbSurvey);
       res.json(dbSurvey);
+      // console.log(req.body);
     });
   });
 
