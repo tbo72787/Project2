@@ -30,5 +30,14 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+<<<<<<< HEAD:models/profiles.js
+=======
+  Profiles.associate = function(models) {
+    Profiles.hasMany(models.Answers, {
+      onDelete: "cascade"
+    });
+  };
+
+>>>>>>> 939a8cab08f8641c00433f295cb7bd64d87e2320:models/db.js
   return Profiles;
 };
