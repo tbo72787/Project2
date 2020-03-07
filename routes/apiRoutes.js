@@ -35,11 +35,22 @@ module.exports = function(app) {
 
   // Get user by id
   app.get("/api/users/:id", function(req, res) {
-    db.Profiles.findAll({ where: { id: req.params.id } }).then(function(
-      dbUser
-    ) {
-      res.json(dbUser);
-    });
+    db.Profiles.findAll({ where: { id: req.params.id } }).then(
+      function(dbUser) {
+        res.json(dbUser);
+      }
+    );
+  });
+
+  // Get user by userName
+  app.get("/api/users/1/:userName", function(req, res) {
+    var userNameString = req.params.userName;
+    db.Profiles.findAll({ where: { userName: userNameString } }).then(
+      function(dbUser) {
+        res.json(dbUser);
+        // console.log(dbUser);
+      }
+    );
   });
 
   // Get answers by id

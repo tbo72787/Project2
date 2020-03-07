@@ -11,7 +11,7 @@ console.log("Question Bank is Connected!");
 // DOM Elements:
 var questionList = document.getElementById("questionList");
 var slider = document.getElementsByClassName("slider");
-var submitButton = document.getElementById("submitButton");
+var quizSubmitButton = document.getElementById("quizSubmitButton");
 
 // Global Variables
 var userAnswerArr = [];
@@ -111,12 +111,14 @@ function displayQuestions(){
 
 // POST information - - - - - - - - - - - - - - - - - - - - - - - - 
 
-function submit(){
+function submit(event){
+  event.preventDefault();
+
+  createUserAnswerArr()
+  changeAnswersArrToString()
   displayDiagram();
-  createUserAnswerArr();
-  changeAnswersArrToString();
-  postUserAnswers();
-  
+  API.saveSurvey(({ userId: 2, answerArr: (userAnswersStr)}));
+
 }
 
 function createUserAnswerArr(){
@@ -131,23 +133,8 @@ function createUserAnswerArr(){
 
 function changeAnswersArrToString(){
   userAnswersStr = userAnswerArr.toString();
+  console.log(userAnswersStr);
 }
-
-function postUserAnswers(){
-  console.log(`Time to post ${userAnswersStr} to the server!`)
-  
-  // var userId = $("#userId").val().trim();
-  // console.log(userId)
-
-  return $.ajax({
-    headers: {
-      "Content-Type": "application/json"
-    },
-    type: "POST",
-    url: "api/surveys/",
-    data: JSON.stringify(({ userId: userId, answerArr: userAnswersStr}))
-  });
-};
 
 
 // RUN
