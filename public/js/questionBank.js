@@ -117,8 +117,7 @@ function submit(event){
   createUserAnswerArr()
   changeAnswersArrToString()
   displayDiagram();
-  API.saveSurvey(({ userId: 2, answerArr: (userAnswersStr)}));
-
+  API.saveSurvey(({ ProfileId: 4, userId: 4, answerArr: (userAnswersStr)}));
 }
 
 function createUserAnswerArr(){
