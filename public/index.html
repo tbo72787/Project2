@@ -10,7 +10,7 @@
   <!-- CSS LINKING -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap" rel="stylesheet"> 
 
   <!--meta (needed for media queries and such)-->    
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,7 @@
 
 </head>
 <body>
+<div class="wrapper">
 
   <!-- ------ ----- ----- ----- INDEX PAGE ----- ----- ----- ----- ----- -->
   <!-- ------ ----- ----- ----- INDEX PAGE ----- ----- ----- ----- ----- -->
@@ -37,10 +38,18 @@
 <div id="pageIndex">
   <!-- INITIAL PAGE -->
   <div id="pageSplashPage" class="indexPage container">
-      <div class="row">  
-      <h1>How diverse is my friend group?</h1>
-      <div id="buttonToSignUpForm" class="button-cta-primary submitButton">Get Started</div>
-      <div id="buttonToSignInForm" class="button-cta-secondary submitButton">Sign In</div>
+    <div class="row">  
+      <div class="titleLockup col-md-12">
+        <h1>How diverse is my friend group?</h1>
+      </div>
+      <div class="buttonLockup col-md-12">
+      <div class="col-md-12">
+        <div id="buttonToSignUpForm" class="button-cta button-cta-primary submitButton">Get Started</div>
+      </div>
+      <div class="col-md-12">
+        <div id="buttonToSignInForm" class="button-cta button-cta-secondary submitButton">Sign In</div>
+      </div>
+      </div>
     </div>
   </div>
   <!-- / initial page-->
@@ -50,12 +59,15 @@
     <div class="row">
       <h1>Enter your Username</h1>
       <form>
-        First name:<br>
-        <input type="text" name="username" value="Enter Username">
+        Username:<br>
+        <input type="text" name="username" placeholder="Enter Username">
         <br><br>
-        <input id="buttonSignIn" class="button-cta-primary submitButton" type="submit" value="Sign In">
+        <div class="buttonLockup">
+          <input id="buttonSignIn" class="button-cta button-cta-primary submitButton" type="submit" placeholder="Sign In">
+          <div id="buttonBackHome" class="button-cta button-cta-secondary submitButton">Back</div>
+        </div>
       </form> 
-      <div id="buttonBackHome" class="button-cta-secondary submitButton">Back</div>
+      
     </div>
   </div>
   <!-- / sign in-->
@@ -64,50 +76,54 @@
   <div id="pageSignUpForm" class="indexPage container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Enter your Username</h1>
+        <div class="titleLockup">
+          <h1>First, we need some info...</h1>
+        </div>
         <form>
           <div class="formTextBlock container">
             <div class="row">
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                 <h4>Name:</h4>
-                <p>First, last, whatever you choose to go by!</p>
+                <p class="subText">First, last, whatever you choose to go by!</p>
                 <input id="user-real-name" type="text" name="userrealname" placeholder="Enter Username">
               </div>
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                 <h4>Username:</h4>
-                <p>Pick something you can remember!</p>
+                <p class="subText">Pick something you can remember!</p>
                 <input id="user-name" type="text" name="username" placeholder="Enter Username">
               </div>
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                 <h4>Age:</h4>
-                <p>(Has to be a number)</p>
+                <p class="subText">(Has to be a number)</p>
                 <input id="user-age" type="text" name="age" placeholder="Enter your age">
               </div>
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                 <h4>Email</h4>
-                <p>Don't worry, we won't spam you.</p>
+                <p class="subText">Don't worry, we won't spam you.</p>
                 <input id="user-email" type="text" name="email" placeholder="Email">
               </div>
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                   <h4>Gender</h4>
-                  <p>Don't know why we're asking, but...</p>
+                  <p class="subText">Don't know why we're asking, but...</p>
                   <input id="user-gender" type="text" name="gender" placeholder="gender">
                 </div>
   
-              <div class="col-md-12">
+              <div class="profileFormQuestionDiv col-md-12">
                 <h4>Picture</h4>
-                <p>For now, just put a link to a jpg hosted online.</p>
+                <p class="subText">For now, just put a link to a jpg hosted online.</p>
                 <input id="user-picture" type="text" name="userPic" placeholder="Jpg. png. anything already hosted online!">
               </div>
   
               <div class="col-md-12">
-                <input id="buttonSubmitForm" class="button-cta-primary submitButton" value="Sign In">
-                <div id="buttonBackHome2" class="button-cta-secondary submitButton">Back</div>
+                <div class="buttonLockup">
+                  <input id="buttonSubmitForm" class="button-cta button-cta-primary submitButton" value="Sign Up">
+                  <div id="buttonBackHome2" class="button-cta button-cta-secondary submitButton">Back</div>
+                </div>
               </div>
             </div>
           </div>
@@ -125,13 +141,15 @@
 <div id="pageQuiz">
   <div class="container">
       <div class="row">
-        <h1>Take the Quiz</h1>
+        <div class="titleLockup">
+          <h1>Take the Quiz</h1>
+        </div>
       </div>
       <div id="questionList" class="container questionList">
         <!--Questions populate here-->
       </div>
-      <div class="row">
-          <div id="quizSubmitButton" class="button-cta-primary submitButton">button...</div>
+      <div class="row buttonLockup">
+          <div id="quizSubmitButton" class="button-cta button-cta-primary submitButton">See Friends</div>
       </div>
     </div>
   </div>
@@ -143,14 +161,22 @@
   <!-- ------ ----- ----- ----- DIAGRAM PAGE ----- ----- ----- ----- ----- -->
   <!-- ------ ----- ----- ----- DIAGRAM PAGE ----- ----- ----- ----- ----- -->
 <div id="pageDiagram">
-  <div class="container">
+  <div id="userNameMessageDiv" class="container">
       <div class="row">
-        <div id="anything" class="col-12-md">
+        <div class="col-12-md">
           <p id="displayUsername"></p>
-          <h1>You are</h1>
         </div>
       </div>
     </div>
+    
+
+    
+        <div class="row">
+          <div class="col-12-md">
+            <h1>You are</h1>
+          </div>
+        </div>
+      
   
     <div id="visualsDiv" class="container">
       <!-- Sentences will populate here -->
@@ -158,18 +184,24 @@
   
   
     <!-- ADD CONNECTION BUTTON -->
-    <div id="buttonConnectionClosed">+</div>
-  
-    <div id="buttonConnectionOpen">
-        <form>
-            Enter your friend's username:<br>
-            <input type="text" name="connection" value="Enter Your Connection's Username">
-            <input id="buttonAddConnection" class="button-cta-primary submitButton" type="submit" value="Add Connection">
-        </form> 
+    <div class="connectionButtonDiv">
+      <div id="addConnectionClosed" class="buttonLockup">
+        <div id="buttonOpenAddConnection" class="button-circular button-cta-primary">+</div>
+      </div>
+
+      <div id="addConnectionOpen">
+          <form>
+              <h4>Enter your friend's username:</h4>
+              <input type="text" name="connection" placeholder="Enter Your Connection's Username">
+              <div class="buttonLockup">
+                <input id="buttonAddConnection" class="button-cta button-cta-primary submitButton" type="submit" placeholder="Add Connection">
+              </div>
+          </form> 
+      </div>
     </div>
   </div>
   
-
+</div>
     
   <!-- Local Javascript file link-->  
   <script src="./js/index.js"></script> 

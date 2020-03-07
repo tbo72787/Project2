@@ -29,6 +29,11 @@
   var $userGender = $("#user-gender");
   var $userEmail = $("#user-email");
   var $userPicture = $("#user-picture");
+// Add Connection
+  var addConnectionClosed = document.getElementById("addConnectionClosed");
+  var addConnectionOpen   = document.getElementById("addConnectionOpen");
+  var buttonOpenAddConnection = document.getElementById("buttonOpenAddConnection")
+
 
 // User ID Retrieved After Login/Profile Submit
   var userId;
@@ -64,6 +69,7 @@ buttonBackHome2.onclick = displaySectionsOnPageLoad;
 buttonSubmitForm.onclick = displayQuiz;
 quizSubmitButton.onclick = displayDiagram;
 
+
 function displayQuiz(){
   pageIndex.style.display = "none";
   pageQuiz.style.display = "block";
@@ -76,9 +82,15 @@ function displayDiagram(){
   pageIndex.style.display = "none";
   pageQuiz.style.display = "none";
   pageDiagram.style.display = "block";
+  addConnectionOpen.style.display = "none";
   getUserId();
 }
 
+buttonOpenAddConnection.onclick = openAddDiv;
+function openAddDiv(){
+  addConnectionOpen.style.display = "block";
+  buttonOpenAddConnection.style.display = "none";
+}
 
 
 // The API object contains methods for each kind of request we'll make

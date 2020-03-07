@@ -90,6 +90,7 @@ function displayQuestions(){
     // Add Slider Labels:
     var sliderLabelsRow = document.createElement("div");
         sliderLabelsRow.classList.add("row");
+        sliderLabelsRow.classList.add("sliderLabelsRow");
     var answer1Div = document.createElement("div");
         answer1Div.classList.add("rangeLabels");
         answer1Div.classList.add("answer1");
@@ -127,7 +128,6 @@ function createUserAnswerArr(){
     userScores.push(score);
   });
   userAnswerArr = userScores
-  console.log("SUBMITTED!")
   console.log(userAnswerArr);
 }
 
