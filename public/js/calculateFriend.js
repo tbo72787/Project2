@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.log("hello world")
 // SEED FRIENDS:
 //====================================================================================================
 // replace this with a data list that pulls from the "connections"
@@ -22,16 +21,19 @@ var connectionAnswersSeed = [
 var connectionNamesSEED = [
   {
     userID: 0000000001,
-    name: "Abby"
+    name: "Carlos"
   },{
     userID: 0000000002,
-    name: "Bettie"
+    name: "Taylor"
   } , {
     userID: 0000000003,
-    name: "Carrie"
+    name: "Leah"
   } , {
     userID: 0000000004,
-    name: "Debbie"
+    name: "Connor"
+  }, {
+    userID: 0000000004,
+    name: "Joe"
   }
 ];
 
@@ -42,9 +44,9 @@ var connectionNamesSEED = [
 // Seed User Info
 // ---------------------------------
 // We'll want to actually pull this from the database.
-var SEEDNAME = "Carlos";
+var SEEDNAME = "kyle";
 var SEEDANSWERS = "1,1,1,1,1,1,1,1,1,1,1,1,1,1,1";
-var SEEDUSERNAME = "cc123";
+var SEEDUSERNAME = "gnefkow";
 
 // ======================= END SEEDS, REAL CODE BELOW =============================================//
 // ======================= END SEEDS, REAL CODE BELOW =============================================//
@@ -186,7 +188,6 @@ function visualizeEasy(){
   for (var i = 0; i< differencesArr.length; i++){
     var name = differencesArr[i].name;
     var diffPercent = differencesArr[i].diffPercent;
-    console.log(`${diffPercent} different from ${name}`);
     
     // Create a Div:
     var readoutDiv = document.createElement("div");
